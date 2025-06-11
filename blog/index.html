@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Marie Dupont - Journaliste & Auteure</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="#" class="text-2xl font-bold text-gray-800">Marie Dupont</a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#accueil" class="text-gray-600 hover:text-gray-900">Accueil</a>
+                    <a href="#articles" class="text-gray-600 hover:text-gray-900">Articles</a>
+                    <a href="#biographie" class="text-gray-600 hover:text-gray-900">Biographie</a>
+                    <a href="#contact" class="text-gray-600 hover:text-gray-900">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button class="mobile-menu-button">
+                        <i class="fas fa-bars text-2xl text-gray-600"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Menu mobile -->
+        <div class="mobile-menu hidden md:hidden">
+            <a href="#accueil" class="block py-2 px-4 text-gray-600 hover:bg-gray-100">Accueil</a>
+            <a href="#articles" class="block py-2 px-4 text-gray-600 hover:bg-gray-100">Articles</a>
+            <a href="#biographie" class="block py-2 px-4 text-gray-600 hover:bg-gray-100">Biographie</a>
+            <a href="#contact" class="block py-2 px-4 text-gray-600 hover:bg-gray-100">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="pt-24 pb-12 bg-gradient-to-r from-purple-500 to-pink-500">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-4">Marie Dupont</h1>
+                <p class="text-xl text-white mb-8">Journaliste & Auteure</p>
+                <div class="flex justify-center space-x-4">
+                    <a href="#articles" class="bg-white text-purple-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition duration-300">Lire mes articles</a>
+                    <a href="#contact" class="bg-transparent border-2 border-white text-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-purple-600 transition duration-300">Me contacter</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Articles Section -->
+    <section id="articles" class="py-16">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Derniers Articles</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="articles-container">
+                <!-- Les articles seront générés dynamiquement par JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Biographie Section -->
+    <section id="biographie" class="py-16 bg-gray-100">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <img src="images/image.png" alt="Marie Dupont" class="rounded-lg shadow-xl w-full h-auto">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold mb-6">À propos de moi</h2>
+                    <p class="text-gray-600 mb-4">
+                        Journaliste passionnée et auteure à succès, je partage mes réflexions sur la société contemporaine, 
+                        la culture et les enjeux de notre époque. Avec plus de 15 ans d'expérience dans le journalisme, 
+                        j'ai couvert de nombreux événements marquants et interviewé des personnalités influentes.
+                    </p>
+                    <p class="text-gray-600 mb-4">
+                        Mon dernier livre "Horizons Nouveaux" a été récompensé par le Prix Littéraire National 2023. 
+                        Je continue d'explorer de nouvelles perspectives et de partager mes découvertes avec mes lecteurs.
+                    </p>
+                    <div class="flex space-x-4 mt-6">
+                        <a href="#" class="text-blue-600 hover:text-blue-800"><i class="fab fa-twitter text-2xl"></i></a>
+                        <a href="#" class="text-blue-800 hover:text-blue-900"><i class="fab fa-linkedin text-2xl"></i></a>
+                        <a href="#" class="text-pink-600 hover:text-pink-800"><i class="fab fa-instagram text-2xl"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Contact</h2>
+            <div class="max-w-2xl mx-auto">
+                <form id="contact-form" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-gray-700 mb-2">Nom</label>
+                        <input type="text" id="name" name="name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-purple-500">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-gray-700 mb-2">Email</label>
+                        <input type="email" id="email" name="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-purple-500">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-gray-700 mb-2">Message</label>
+                        <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-purple-500"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-purple-600 text-white py-3 rounded-lg font-semibold hover:bg-purple-700 transition duration-300">
+                        Envoyer
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <p>&copy; 2024 Marie Dupont. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

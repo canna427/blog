@@ -1,0 +1,88 @@
+/* Styles personnalisés */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Animation pour le menu mobile */
+.mobile-menu {
+    transition: all 0.3s ease-in-out;
+}
+
+.mobile-menu.active {
+    display: block;
+}
+
+/* Styles pour les articles */
+.article-card {
+    transition: transform 0.3s ease-in-out;
+}
+
+.article-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Styles pour les images d'articles */
+.article-image {
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
+
+/* Animation pour le formulaire de contact */
+input:focus, textarea:focus {
+    transform: scale(1.01);
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Styles pour les boutons de navigation */
+.nav-link {
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #9333ea;
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Styles pour le loader */
+.loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #9333ea;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Styles pour les messages de notification */
+.notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: #9333ea;
+    color: white;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.notification.show {
+    transform: translateY(0);
+    opacity: 1;
+} 
