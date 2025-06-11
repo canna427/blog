@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article - Blog de Marie Dupont</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-gray-800">Marie Dupont</a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html#accueil" class="text-gray-600 hover:text-gray-900">Accueil</a>
+                    <a href="index.html#articles" class="text-gray-600 hover:text-gray-900">Articles</a>
+                    <a href="index.html#biographie" class="text-gray-600 hover:text-gray-900">Biographie</a>
+                    <a href="index.html#contact" class="text-gray-600 hover:text-gray-900">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button class="mobile-menu-button">
+                        <i class="fas fa-bars text-2xl text-gray-600"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Menu mobile -->
+        <div class="mobile-menu hidden md:hidden">
+            <a href="index.html#accueil" class="block py-2 px-4 text-gray-600 hover:bg-gray-100">Accueil</a>
+            <a href="index.html#articles" class="block py-2 px-4 text-gray-600 hover:bg-gray-100">Articles</a>
+            <a href="index.html#biographie" class="block py-2 px-4 text-gray-600 hover:bg-gray-100">Biographie</a>
+            <a href="index.html#contact" class="block py-2 px-4 text-gray-600 hover:bg-gray-100">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Article Content -->
+    <main class="pt-24 pb-16">
+        <article class="max-w-4xl mx-auto px-4">
+            <div id="article-content" class="bg-white rounded-lg shadow-lg p-8">
+                <!-- Le contenu de l'article sera injecté ici par JavaScript -->
+                <div class="text-center">
+                    <div class="loader mx-auto"></div>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <p>&copy; 2024 Marie Dupont. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Fonction pour charger et afficher l'article
+        function loadArticle() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const articleId = parseInt(urlParams.get('id'));
+            
+            const article = articles.find(a => a.id === articleId);
+            
+            if (article) {
+                document.title = `${article.title} - Blog de Marie Dupont`;
+                
+                const articleContent = document.getElementById('article-content');
+                articleContent.innerHTML = `
+                    <header class="mb-8">
+                        <span class="text-sm text-purple-600 font-semibold">${article.category}</span>
+                        <h1 class="text-3xl md:text-4xl font-bold mt-2 mb-4">${article.title}</h1>
+                        <div class="flex items-center text-gray-600">
+                            <span class="mr-4">${article.date}</span>
+                            <span>Par Marie Dupont</span>
+                        </div>
+                    </header>
+                    
+                    <img src="${article.image}" alt="${article.title}" class="w-full rounded-lg mb-8">
+                    
+                    <div class="prose max-w-none">
+                        ${article.content}
+                    </div>
+                    
+                    <div class="mt-8 pt-8 border-t">
+                        <a href="index.html#articles" class="text-purple-600 hover:text-purple-800 font-semibold">
+                            ← Retour aux articles
+                        </a>
+                    </div>
+                `;
+            } else {
+                document.getElementById('article-content').innerHTML = `
+                    <div class="text-center py-12">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-4">Article non trouvé</h2>
+                        <p class="text-gray-600 mb-8">L'article que vous recherchez n'existe pas.</p>
+                        <a href="index.html#articles" class="text-purple-600 hover:text-purple-800 font-semibold">
+                            Retour aux articles
+                        </a>
+                    </div>
+                `;
+            }
+        }
+
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', () => {
+            loadArticle();
+            initMobileMenu();
+            
+            // Ajout de la classe nav-link à tous les liens de navigation
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.add('nav-link');
+            });
+        });
+    </script>
+</body>
+</html> 
